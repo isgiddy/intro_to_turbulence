@@ -19,7 +19,6 @@ project:
     - file: boundary_layer_turbulence.md
     - file: role_of_turbulence.md
     - file: obs_of_shear.ipynb
-    # - file: references.md
 site:
   options:
     logo: logo.png
