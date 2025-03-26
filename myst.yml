@@ -1,0 +1,27 @@
+version: 1
+project:
+  title: A brief introduction to turbulence in the ocean
+  authors:
+    - name: Isabelle Giddy
+  copyright: "2025"
+  github: executablebooks/jupyter-book
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: intro.md
+    - file: what_is_turbulence.md
+    - file: equations_of_motion.md
+    - file: observing_turbulence.md
+    - file: boundary_layer_turbulence.md
+    - file: role_of_turbulence.md
+    - file: obs_of_shear.ipynb
+    # - file: references.md
+site:
+  options:
+    logo: logo.png
+  template: book-theme
+
