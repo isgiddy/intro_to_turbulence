@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>What is turbulence &#8212; A brief introduction to turbulence in the ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'what_is_turbulence';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Predicting turbulent flows" href="equations_of_motion.html" />
+    <link rel="prev" title="An introduction to observing turbulence in the ocean" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="A brief introduction to turbulence in the ocean - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="A brief introduction to turbulence in the ocean - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An introduction to observing turbulence in the ocean
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What is turbulence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equations_of_motion.html">Predicting turbulent flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observing_turbulence.html">Observing turbulence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundary_layer_turbulence.html">Boundary Layer Turbulence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role_of_turbulence.html">The importance of turbulence in the ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="obs_of_shear.html">Assignment: The observation and interpretation of turbulence dissipation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fwhat_is_turbulence.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/what_is_turbulence.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is turbulence</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turbulent-mixing">Turbulent mixing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-energy-cascade">The energy cascade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turbulent-fluxes">Turbulent fluxes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defintion-of-turbulence">Defintion of turbulence</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-turbulence">
+<h1>What is turbulence<a class="headerlink" href="#what-is-turbulence" title="Link to this heading">#</a></h1>
+<figure class="align-center" id="fig-davinci">
+<a class="reference internal image-reference" href="_images/davinci.jpg"><img alt="_images/davinci.jpg" src="_images/davinci.jpg" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Leonardo da Vinci’s “Studies of water” (c.1510-12). The term “turbulence” appears to have first been used in reference to fluid flows by da Vinci, who studied the phenomenon extensively</span><a class="headerlink" href="#fig-davinci" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Turbulence in the ocean is responsible for the transport of fluid properties and the smoothing of gradients (dissipation of energy).</p>
+<section id="turbulent-mixing">
+<h2>Turbulent mixing<a class="headerlink" href="#turbulent-mixing" title="Link to this heading">#</a></h2>
+<p>Turbulence is a stochastic flow phenomenon that may occur in various fluids and gases. Due to its random character and complexity a generally valid theory for turbulence is lacking and turbulence remains one of the major unsovled problems of classic physics. Nevertheless, turbulent flows can be described. Here, we will look at the description of turbulence in oceanic flows.</p>
+<p>Turbulence results from the nonlinear nature of advection, which enables interactions between motions on different spatial scales. Consequently, an initial disturbance with a given characteristic length scale tends to spread to progressively larger and smaller scales. This expansion is limited at large scales by boundaries and at small scales by viscosity.</p>
+<p>By deforming a fluid, via stirring and strain, gradients are increased thus increasing the area available for molecular diffusion which occurs at small scales (the Kolmogorov length scale), effectively increasing the rate of mixing by several orders of magnitude (see Fig 2). In the case of a tracer, after mixing, variance is reduced.</p>
+<p>The rate of molecular diffusion (kinematic viscosity, <span class="math notranslate nohighlight">\(\nu\)</span>) is <span class="math notranslate nohighlight">\(\nu \approx 10^{-6} \text{ m}^2/\text{s}\)</span>.</p>
+<p>The rate of eddy viscosity (turbulent diffusion, <span class="math notranslate nohighlight">\(\nu_t\)</span>) is <span class="math notranslate nohighlight">\(\nu_t \approx 10^{-4} - 10^{-1} \text{ m}^2/\text{s}\)</span>.</p>
+<p>Take note, kinematic viscosity if a property of the <em>fluid</em>, while eddy viscosity is a property of the <em>flow</em>.</p>
+<p>A common analogy is that of mixing coffee and milk.</p>
+<figure class="align-center" id="fig-turbulence">
+<a class="reference internal image-reference" href="_images/smyth_moum_2009.png"><img alt="_images/smyth_moum_2009.png" src="_images/smyth_moum_2009.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">A comparison of mixing enhanced by turbulence with
+mixing due to molecular processes alone, as revealed by a
+numerical solution of the equations of motion. The initial state
+includes a circular region of dyed fluid in a white background.
+Two possible evolutions are shown: one in which the fluid is
+motionless (save for random molecular motions), and one in
+which the fluid is in a state of fully developed, two-dimensional
+turbulence. The mixed region (yellow-blue) expands much more
+rapidly in the turbulent case. Smyth and Moum 2009 <span id="id1">[<a class="reference internal" href="references.html#id16" title="W. D. Smyth and J. N. Moum. Three-dimensional (3D) turbulence. Academic Press, 2009. doi:doi:10.1006/rwos.2001.0134.">SM09</a>]</span>.</span><a class="headerlink" href="#fig-turbulence" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-energy-cascade">
+<h2>The energy cascade<a class="headerlink" href="#the-energy-cascade" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Big whirls have little whirls that feed on their velocity,</em><br />
+<em>And little whirls have lesser whirls and so on to viscosity - in the molecular sense.</em><br />
+<em>- Richardson, 1922</em></p>
+</div></blockquote>
+<p>Turbulence in the ocean is generated by large-scale forcing mechanisms, e.g. winds, tides, bottom friction, geothermal energy,
+Ocean generated, turbulence is transferred to smaller scales.
+At large scales, the flow is dominated by balanced forces (geostrophic balance), which tend to follow an inverse cascade.
+But, at fronts, instabilities can form, transferring energy to smaller scales via eddies.
+At the inertial subrange, energy transfer is governed by an approximate equilibrium, where large eddies break into smaller ones without loss of energy.
+Once turbulent eddies reach dissipative scales (the Kolmogorov Microscale, <span class="math notranslate nohighlight">\({(\frac{\nu^3}{\varepsilon})}^{{1/4}}\)</span>), molecular viscosity begins to play a dominant role and kinetic energy is converted into heat.
+This dissipation balances the energy input at large scales, maintaining a steady-state regime.</p>
+<figure class="align-center" id="fig-cascade">
+<a class="reference internal image-reference" href="_images/energy_cascade.png"><img alt="_images/energy_cascade.png" src="_images/energy_cascade.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The kinetic energy spectra of turbulence ranging from large scales to dissipative scales. <span class="math notranslate nohighlight">\(E=q\varepsilon^{2/3}k^{-5/3}\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is an eddy wavenumber and <span class="math notranslate nohighlight">\(q=0.5\)</span>, a universal constant. <em>Source of schematic: Embry-Riddle Aeronautical University</em></span><a class="headerlink" href="#fig-cascade" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="turbulent-fluxes">
+<h2>Turbulent fluxes<a class="headerlink" href="#turbulent-fluxes" title="Link to this heading">#</a></h2>
+<p>Parcels of fluid with different properties are physically moved by turbulent eddies. Flux is defined as the total rate of flow of ‘stuff’ across or through a surface. The net flux is the result of averaging the transport by all of the eddies over a given area. Fluxes are often down-gradient (from high to low).</p>
+<figure class="align-center" id="fig-flux">
+<a class="reference internal image-reference" href="_images/turbulent_fluxes.png"><img alt="_images/turbulent_fluxes.png" src="_images/turbulent_fluxes.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The turbulent flux of momentum and scalars.</span><a class="headerlink" href="#fig-flux" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="defintion-of-turbulence">
+<h2>Defintion of turbulence<a class="headerlink" href="#defintion-of-turbulence" title="Link to this heading">#</a></h2>
+<p>It is difficult to provide a precise definition of turbulence. But it can be qualitatively described by properties that are common to all turbulent flows.</p>
+<ol class="arabic simple">
+<li><p><strong>Randomness</strong>: Turbulent flows generate stochastic data sets both in time and in space. Small uncertainties in the initial and boundary conditions quickly amplify, rendering a deterministic description of individual turbulent fluctuations impossible. Turbulence can be described statistically (statistical moments, correlations, probability distributions).</p></li>
+<li><p><strong>Increased Transport and Mixing</strong>: Turbulent flows generally show strongly increased mixing and transport rates of matter, heat, and momentum because of the generation of sharp gradients and increased contact surfaces due to the complex strain field associated with the turbulent motions.</p></li>
+<li><p><strong>Vorticity</strong>: Turbulent flows are characterized by vorticity, manifested in the omnipresence of eddying motions. These vortices (“eddies”) involve a wide range of spatial wavelengths, ranging from the largest scales imposed by the bounding geometry down to the smallest scales, where eddies are dissipated due to molecular (viscous) smoothing.</p></li>
+<li><p><strong>Dissipative</strong>: Turbulence is “dissipative,” meaning the kinetic energy is dissipated into heat due to viscous friction at the smallest scales. Similarly, scalar fluctuations are smoothed by molecular diffusion, implying that the overall scalar variance is reduced. Thus, a mechanism must exist to transport energy and scalar variance from the largest scales, where they are introduced to the system, towards the smallest scales, where they are dissipated (broad energy spectrum).</p></li>
+</ol>
+<!--```{tableofcontents}
+``` -->
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">An introduction to observing turbulence in the ocean</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="equations_of_motion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Predicting turbulent flows</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turbulent-mixing">Turbulent mixing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-energy-cascade">The energy cascade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turbulent-fluxes">Turbulent fluxes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defintion-of-turbulence">Defintion of turbulence</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Isabelle Giddy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
