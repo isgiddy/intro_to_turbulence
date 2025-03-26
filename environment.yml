@@ -1,0 +1,12 @@
+name: turbulence
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12  
+  - numpy
+  - matplotlib
+  - pandas
+  - xarray
+  - h5netcdf
+  - gsw
+  - jupyterlab
