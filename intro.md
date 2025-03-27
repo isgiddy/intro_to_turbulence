@@ -15,9 +15,9 @@ Completion and submission of the assignment is nessecary for completing the cour
 **Reading**  
 A few texts are recommended for further reading. Other relevent references are given throughout.
 
-{cite}`ocean_mixing`  
-{cite}`thorpe_2007`  
-{cite}`smyth_2009`  
+Ocean Mixing {cite}`ocean_mixing`  
+Introduction to Ocean Turbulence {cite}`thorpe_2007`  
+Three-dimensional (3D) turbulence {cite}`smyth_2009`  
 
 ---
 
