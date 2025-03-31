@@ -77,7 +77,7 @@ Parcels of fluid with different properties are physically moved by turbulent edd
 The turbulent flux of momentum and scalars.
 ```
 
-## Defintion of turbulence
+## Definition of turbulence
 
 It is difficult to provide a precise definition of turbulence. But it can be qualitatively described by properties that are common to all turbulent flows.
 
@@ -85,7 +85,7 @@ It is difficult to provide a precise definition of turbulence. But it can be qua
 
 2. **Increased Transport and Mixing**: Turbulent flows generally show strongly increased mixing and transport rates of matter, heat, and momentum because of the generation of sharp gradients and increased contact surfaces due to the complex strain field associated with the turbulent motions.
 
-3. **Vorticity**: Turbulent flows are characterized by vorticity, manifested in the omnipresence of eddying motions. These vortices ("eddies") involve a wide range of spatial wavelengths, ranging from the largest scales imposed by the bounding geometry down to the smallest scales, where eddies are dissipated due to molecular (viscous) smoothing.
+3. **Vorticity**: Turbulent flows are characterized by vorticity, manifested in the omnipresence of eddying motions. These vortices ("eddies") involve a wide range of spatial wavelengths, ranging from the largest scales imposed by the bounding geometry down to the smallest scales, where eddies are dissipated due to molecular (viscous) smoothing. 3D.
 
 4. **Dissipative**: Turbulence is "dissipative," meaning the kinetic energy is dissipated into heat due to viscous friction at the smallest scales. Similarly, scalar fluctuations are smoothed by molecular diffusion, implying that the overall scalar variance is reduced. Thus, a mechanism must exist to transport energy and scalar variance from the largest scales, where they are introduced to the system, towards the smallest scales, where they are dissipated (broad energy spectrum).
 
