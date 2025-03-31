@@ -124,14 +124,14 @@ Applying **Reynolds averaging**, we use the following properties:
 
 ### 1. Substituting Reynolds Decomposition into the Navier-Stokes Equation
 
-Recall the Navier-Stokes equation in the *z-direction*:
+Recall the Navier-Stokes equation:
 
 $$
 \frac{\partial\mathbf{u}}{\partial t}
 + \mathbf{u} \cdot \nabla \mathbf{u}
 = -\frac{1}{\rho_0} \nabla p
 + b \hat{z}
-% + f  \times \mathbf{u}
++ f  \times \mathbf{u}
 + \nu \nabla^2 \mathbf{u}.
 $$
 
@@ -142,7 +142,7 @@ $$
 + \underbrace{(\overline{\mathbf{u}} + \mathbf{u'}) \cdot \nabla(\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Advection of momentum}}
 = \underbrace{-\frac{1}{\rho_0}\nabla (\overline{p} + p')}_{\text{Pressure gradient force}}
 + \underbrace{b \hat{z}}_{\text{Buoyancy force}}
-% + \underbrace{f \times (\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Coriolis force}}
++ \underbrace{f \times (\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Coriolis force}}
 + \underbrace{\nu\nabla^2(\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Viscous dissipation}}.
 $$
 
@@ -175,7 +175,7 @@ $$
 
 ### 3. Final Reynolds-Averaged Navier-Stokes Equation
 
-Thus, the **Reynolds-averaged momentum equation** (RANS) becomes:
+Thus, the **Reynolds-averaged momentum equation** (RANS) becomes, assuming the z-direction:
 
 $$
 \underbrace{\frac{\partial\overline{\mathbf{u}}}{\partial t}}_{\text{Storage of momentum}}
@@ -183,7 +183,7 @@ $$
 =
 -\underbrace{\frac{1}{\rho_0}\nabla \overline{p}}_{\text{Pressure gradient force}}
 + \underbrace{b \hat{z}}_{\text{Buoyancy force}} \\
-% + \underbrace{ f \hat{z} \times \overline{\mathbf{u}}}_{\text{Coriolis force}}
++ \cancel{\underbrace{ f \hat{z} \times \overline{\mathbf{u}}}_{\text{Coriolis force}}}
 + \underbrace{\nu \nabla^2 \overline{\mathbf{u}}}_{\text{Viscous dissipation}}
 - \underbrace{\overline{\mathbf{u'} \cdot \nabla\mathbf{u'}}}_{\text{Turbulent momentum flux}}.
 $$
@@ -207,7 +207,9 @@ $$
 e = \frac{1}{2} \overline{u'_i u'_i}.
 $$
 
-To derive the **TKE equation**, multiply the fluctuating Navier-Stokes equation by $ u'_i $ and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges. 
+To derive the **TKE equation**, multiply the fluctuating Navier-Stokes equation by $ u'_i $ and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges.  
+Here we take cartesian coordinates E.g: $u_i = u_1 + u_2 + u_3 = u + v + w$  
+Solve for z-direction: $i=1,j=3: u_iu_j = u,w, x_j=z$.
 
 $$
 \overline{ u'_i \frac{\partial u'_i}{\partial t} }

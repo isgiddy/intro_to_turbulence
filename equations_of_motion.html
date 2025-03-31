@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -530,14 +530,14 @@ p = \overline{p} + p'
 <h2>Derivation of the Reynolds-Averaged Momentum Equation<a class="headerlink" href="#derivation-of-the-reynolds-averaged-momentum-equation" title="Link to this heading">#</a></h2>
 <section id="substituting-reynolds-decomposition-into-the-navier-stokes-equation">
 <h3>1. Substituting Reynolds Decomposition into the Navier-Stokes Equation<a class="headerlink" href="#substituting-reynolds-decomposition-into-the-navier-stokes-equation" title="Link to this heading">#</a></h3>
-<p>Recall the Navier-Stokes equation in the <em>z-direction</em>:</p>
+<p>Recall the Navier-Stokes equation:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial\mathbf{u}}{\partial t}
 + \mathbf{u} \cdot \nabla \mathbf{u}
 = -\frac{1}{\rho_0} \nabla p
 + b \hat{z}
-% + f  \times \mathbf{u}
++ f  \times \mathbf{u}
 + \nu \nabla^2 \mathbf{u}.
 \]</div>
 <p>Substituting <span class="math notranslate nohighlight">\( \mathbf{u} = \overline{\mathbf{u}} + \mathbf{u'} \)</span> and <span class="math notranslate nohighlight">\( p = \overline{p} + p' \)</span>, we get:</p>
@@ -547,7 +547,7 @@ p = \overline{p} + p'
 + \underbrace{(\overline{\mathbf{u}} + \mathbf{u'}) \cdot \nabla(\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Advection of momentum}}
 = \underbrace{-\frac{1}{\rho_0}\nabla (\overline{p} + p')}_{\text{Pressure gradient force}}
 + \underbrace{b \hat{z}}_{\text{Buoyancy force}}
-% + \underbrace{f \times (\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Coriolis force}}
++ \underbrace{f \times (\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Coriolis force}}
 + \underbrace{\nu\nabla^2(\overline{\mathbf{u}} + \mathbf{u'})}_{\text{Viscous dissipation}}.
 \]</div>
 </section>
@@ -576,7 +576,7 @@ p = \overline{p} + p'
 <hr class="docutils" />
 <section id="final-reynolds-averaged-navier-stokes-equation">
 <h3>3. Final Reynolds-Averaged Navier-Stokes Equation<a class="headerlink" href="#final-reynolds-averaged-navier-stokes-equation" title="Link to this heading">#</a></h3>
-<p>Thus, the <strong>Reynolds-averaged momentum equation</strong> (RANS) becomes:</p>
+<p>Thus, the <strong>Reynolds-averaged momentum equation</strong> (RANS) becomes, assuming the z-direction:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \underbrace{\frac{\partial\overline{\mathbf{u}}}{\partial t}}_{\text{Storage of momentum}}
@@ -584,7 +584,7 @@ p = \overline{p} + p'
 =
 -\underbrace{\frac{1}{\rho_0}\nabla \overline{p}}_{\text{Pressure gradient force}}
 + \underbrace{b \hat{z}}_{\text{Buoyancy force}} \\
-% + \underbrace{ f \hat{z} \times \overline{\mathbf{u}}}_{\text{Coriolis force}}
++ \cancel{\underbrace{ f \hat{z} \times \overline{\mathbf{u}}}_{\text{Coriolis force}}}
 + \underbrace{\nu \nabla^2 \overline{\mathbf{u}}}_{\text{Viscous dissipation}}
 - \underbrace{\overline{\mathbf{u'} \cdot \nabla\mathbf{u'}}}_{\text{Turbulent momentum flux}}.
 \end{split}\]</div>
@@ -608,7 +608,9 @@ p = \overline{p} + p'
 \[
 e = \frac{1}{2} \overline{u'_i u'_i}.
 \]</div>
-<p>To derive the <strong>TKE equation</strong>, multiply the fluctuating Navier-Stokes equation by <span class="math notranslate nohighlight">\( u'_i \)</span> and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges.</p>
+<p>To derive the <strong>TKE equation</strong>, multiply the fluctuating Navier-Stokes equation by <span class="math notranslate nohighlight">\( u'_i \)</span> and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges.<br />
+Here we take cartesian coordinates E.g: <span class="math notranslate nohighlight">\(u_i = u_1 + u_2 + u_3 = u + v + w\)</span><br />
+Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_iu_j = u,w, x_j=z\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
 \overline{ u'_i \frac{\partial u'_i}{\partial t} }
