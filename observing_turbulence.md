@@ -4,7 +4,7 @@
 
 [1968 pipe experiment](https://www.youtube.com/watch?v=AeBsiEYWZUY)
 
-In 1883, Osborn Reynolds described an experiment on the transition between laminar and turbulent flow in a tube. He discovered that the flow resistance was propotional to the flow velocity for small velocities, and proportional to the square of the flow velocity, $V$, if a certain threshold was exceeded. He found that this critical velocity depended on the diameter, $D$, of the tube and the viscosity, $\nu$, of the water. He further notices by visual inspection of streaks of colored water that, at this critical velocity, a transition from direct (straight, laminar) to sinuous (turbulent) motion took place. 
+In 1883, Osborn Reynolds described an experiment on the transition between laminar and turbulent flow in a tube. He discovered that the flow resistance was propotional to the flow velocity for small velocities, and proportional to the square of the flow velocity, $V$, if a certain threshold was exceeded. He found that this critical velocity depended on the diameter, $D$, of the tube and the molecular viscosity, $\nu$, of the water. He further notices by visual inspection of streaks of colored water that, at this critical velocity, a transition from direct (straight, laminar) to sinuous (turbulent) motion took place. 
 
 ```{figure} images/osborn_reynolds.png
 :name: fig-reynolds
@@ -52,7 +52,7 @@ Vertical shear of horizontal velocity measured by a freely falling shear microst
 
 ### Dissipation rate of TKE
 
-The dissipation rate of Turbulent Kinetic Energy (TKE) is derived from observations of shear gradients at the Kolmogorov microscale through the following relation:
+The dissipation rate of Turbulent Kinetic Energy (TKE) is derived from observations of shear gradients at the Kolmogorov microscale, ${(\frac{\nu^3}{\varepsilon})}^{{1/4}}$ through the following relation:
 
 $$
 \varepsilon_j = \frac{15}{2} \nu\langle{(\frac{\partial u'_i}{\partial x_j}\frac{\partial u'_i}{\partial x_j})}\rangle \approx  \frac{15}{2} \nu \int_{k_l}^{k_u} S' (k) dk,
@@ -68,6 +68,8 @@ $$
 
 Dissipation is then statistically approximated by taking the integral of the shear spectrum between observed wavenumbers that are unaffected by instrument noise (typically between 1-100 cpm). Quality of the data is checked by fitting to an empirically derived Nasmyth spectra (1970) {cite}`nasmyth_1970`, recently updated using a vastly larger dataset to the Lueck spectrum {cite}`lueck_statistics_2022`. 
 
+At very strong dissipation rates, $10^{-4}$ m$^2$ s$^{-3}$, the Kolmogorov microscale, $L_k \propto \frac{1}{\varepsilon}$, becomes very small and shear microstructure probes may not capture the full shear spectrum. At very low dissipation rates, the signal to noise ratio may be too small to resolve reliable estimates of turbulence dissipation. 
+
 ```{figure} images/example_shear_spectra.png
 :name: fig-shear_spectra
 :width: 80%
@@ -75,6 +77,8 @@ Dissipation is then statistically approximated by taking the integral of the she
 
 The spectra of two components of along-path shear. Nasmyth spectra are overlain in black.  *Source: RSI Technical Note 028*
 ```
+
+It is also possible to derive turbulence dissipation rates from temperature microstructure (following the Batchelor spectrum, {cite}`osborn_cox_1972`, {cite}`bluteau_2017`) and conductivity microstructure. 
 
 ### Turbulent Fluxes
 
