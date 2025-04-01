@@ -4,7 +4,7 @@
 
 [1968 pipe experiment](https://www.youtube.com/watch?v=AeBsiEYWZUY)
 
-In 1883, Osborn Reynolds described an experiment on the transition between laminar and turbulent flow in a tube. He discovered that the flow resistance was propotional to the flow velocity for small velocities, and proportional to the square of the flow velocity, $V$, if a certain threshold was exceeded. He found that this critical velocity depended on the diameter, $D$, of the tube and the viscosity, $\nu$, of the water. He further notices by visual inspection of streaks of colored water that, at this critical velocity, a transition from direct (straight, laminar) to sinuous (turbulent) motion took place. 
+In 1883, Osborn Reynolds described an experiment on the transition between laminar and turbulent flow in a tube. He discovered that the flow resistance was propotional to the flow velocity for small velocities, and proportional to the square of the flow velocity, $V$, if a certain threshold was exceeded. He found that this critical velocity depended on the diameter, $D$, of the tube and the molecular viscosity, $\nu$, of the water. He further notices by visual inspection of streaks of colored water that, at this critical velocity, a transition from direct (straight, laminar) to sinuous (turbulent) motion took place. 
 
 ```{figure} images/osborn_reynolds.png
 :name: fig-reynolds
@@ -20,9 +20,13 @@ $$
 \mathrm{Re} = \frac{DV}{\nu},
 $$
 
-named, the Reynolds number. For $\mathrm{Re}$ smaller than 1900  he found laminar flow, whereas for $\mathrm{Re}$ larger than 2000, the flow shoed a transition to irregular turbulent motions. The Reynolds number describes the ration of turbulent diffusivity to molecular diffusivity.
+named, the Reynolds number. For $\mathrm{Re}$ smaller than 1900  he found laminar flow, whereas for $\mathrm{Re}$ larger than 2000, the flow shoed a transition to irregular turbulent motions. The Reynolds number describes the ratio of turbulent diffusivity to molecular diffusivity. 
 
-It also describes the ratio of small to large structures. Recall da Vinci's sketch. Highly turbulent fluids will have a large Reynolds number because the number of small structures will be much greater than the number of large structures. 
+The Richardson number, $\frac{N^2}{S^2}$, the ratio of background vertical stratification to background vertical shear, quantifies the capacity of a flow to overcome buoyancy suppression and turbulent eddies to form. Typically, a water parcel with a Richardson number of less than 0.25 will have the potential to develop turbulent overturns.
+
+One can use the Buoyancy Reynolds number to quantify turbulence intensity (energetic capacity of a stratified flow to develop overturns) given knowledge of the turbulence dissipation rate and vertical stratification, where $Re_b = \frac{\varepsilon}{\nu N^2}$. Typically, $Re_b \leq 20$ is laminar flow, $Re_b \geq 200$ is turbulent. 
+
+The Reynolds number also describes the ratio of small to large structures. Recall da Vinci's sketch. Highly turbulent fluids will have a large Reynolds number because the number of small structures will be much greater than the number of large structures. 
 
 ## In the ocean
 
@@ -48,7 +52,7 @@ Vertical shear of horizontal velocity measured by a freely falling shear microst
 
 ### Dissipation rate of TKE
 
-The dissipation rate of Turbulent Kinetic Energy (TKE) is derived from observations of shear gradients at the Kolmogorov microscale through the following relation:
+The dissipation rate of Turbulent Kinetic Energy (TKE) is derived from observations of shear gradients at the Kolmogorov microscale, ${(\frac{\nu^3}{\varepsilon})}^{{1/4}}$ through the following relation:
 
 $$
 \varepsilon_j = \frac{15}{2} \nu\langle{(\frac{\partial u'_i}{\partial x_j}\frac{\partial u'_i}{\partial x_j})}\rangle \approx  \frac{15}{2} \nu \int_{k_l}^{k_u} S' (k) dk,
@@ -64,6 +68,8 @@ $$
 
 Dissipation is then statistically approximated by taking the integral of the shear spectrum between observed wavenumbers that are unaffected by instrument noise (typically between 1-100 cpm). Quality of the data is checked by fitting to an empirically derived Nasmyth spectra (1970) {cite}`nasmyth_1970`, recently updated using a vastly larger dataset to the Lueck spectrum {cite}`lueck_statistics_2022`. 
 
+At very strong dissipation rates, $10^{-4}$ m$^2$ s$^{-3}$, the Kolmogorov microscale, $L_k \propto \frac{1}{\varepsilon}$, becomes very small and shear microstructure probes may not capture the full shear spectrum. At very low dissipation rates, the signal to noise ratio may be too small to resolve reliable estimates of turbulence dissipation. 
+
 ```{figure} images/example_shear_spectra.png
 :name: fig-shear_spectra
 :width: 80%
@@ -71,6 +77,8 @@ Dissipation is then statistically approximated by taking the integral of the she
 
 The spectra of two components of along-path shear. Nasmyth spectra are overlain in black.  *Source: RSI Technical Note 028*
 ```
+
+It is also possible to derive turbulence dissipation rates from temperature microstructure (following the Batchelor spectrum, {cite}`osborn_cox_1972`, {cite}`bluteau_2017`) and conductivity microstructure. 
 
 ### Turbulent Fluxes
 
@@ -110,11 +118,11 @@ $$
 
 $K_z$ must be parameterized. One method in observational oceanography is the **Osborn method** (1980) {cite}`osborn_1980`.
 
-Recall the TKE budget equation assuming steady, homogeneous, 1D *stratified* shear flow:
+Recall the TKE budget equation assuming steady, homogeneous, 1D *stratified* shear flow, $i=1,j=3$:
 
 $$
 \underbrace{\overline{ u'_i u'_j } \frac{\partial \overline{u}_i}{\partial x_j}}_{\text{Shear production}}
-+ \underbrace{\overline{ u'_i b'_i }}_{\text{Buoyancy production/consumption}}
++ \underbrace{\overline{ u'_j b' }}_{\text{Buoyancy production/consumption}}
 - \underbrace{\varepsilon}_{\text{dissipation rate of TKE}} = 0
 $$
 
@@ -138,7 +146,7 @@ $$
 K_z = \frac{\mathrm{Ri_f}}{1-\mathrm{Ri_f}} \frac{\varepsilon}{N^2},
 $$
 
-where $\frac{\mathrm{Ri_f}}{1-\mathrm{Ri_f}} = \Gamma$, referred to as the efficiency factor, $\Gamma$, is generally assumed to be 0.2, representing the conversion efficiency of TKE into PE of the system. Note, that while $\Gamma$ is commonly assumed constant, it varies depending on the dynamics of the system. e.g. $\Gamma$ < 0.2 under intense mixing conditions; $\Gamma$  > 0.2 where double diffusive convection is possible because the source of turbulence production is dominated by a destabilizing buoyancy flux. 
+where $\frac{\mathrm{Ri_f}}{1-\mathrm{Ri_f}} = \Gamma$, referred to as the efficiency factor, $\Gamma$, is generally assumed to be 0.2, representing the conversion efficiency of TKE into PE of the system. Note, that while $\Gamma$ is commonly assumed constant, it varies depending on the dynamics of the system. e.g. $\Gamma$ < 0.2 (decrease in mixing efficiency) under intense mixing conditions due to weak gradients; $\Gamma$  > 0.2 where double diffusive convection is possible because the source of turbulence production is dominated by a destabilizing buoyancy flux. 
 
 Thus:
 

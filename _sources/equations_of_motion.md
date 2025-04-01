@@ -197,7 +197,7 @@ This formulation is fundamental in **turbulent flow modeling**, including Large 
 
 ## The Turbulence Kinetic Energy (TKE) Equation
 
-TKE is a direct measure of turbulence in a flow and is one of the most important variables in oceanography. The **TKE budget equation** provides insights into the physical processes generating and dissipating turbulence. It is directly related to the turbulent fluxes of momentum derived earlier.
+TKE is a direct measure of turbulence in a flow and is one of the most important variables in oceanography. The **TKE budget equation** provides insights into the physical processes generating and dissipating turbulence. It is directly related to the turbulent fluxes of momentum derived earlier.  
 
 ### Derivation of the TKE Equation 
 
@@ -207,9 +207,11 @@ $$
 e = \frac{1}{2} \overline{u'_i u'_i}.
 $$
 
-To derive the **TKE equation**, multiply the fluctuating Navier-Stokes equation by $ u'_i $ and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges.  
+To derive the **TKE equation**, multiply the fluctuating Navier-Stokes equation by $ u'_i $ and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges.    
 Here we take cartesian coordinates E.g: $u_i = u_1 + u_2 + u_3 = u + v + w$  
-Solve for z-direction: $i=1,j=3: u_iu_j = u,w, x_j=z$.
+Solve for z-direction: $i=1,j=3: u_iu_j = u,w, x_j=z$. Note buoyancy only acts in the z-direction. 
+
+<!-- check if mulitply through by u_i or u_j -->
 
 $$
 \overline{ u'_i \frac{\partial u'_i}{\partial t} }
@@ -217,7 +219,7 @@ $$
 + \overline{ u'_i u'_j \frac{\partial \overline{u}_i}{\partial x_j} }
 + \overline{ u'_i u'_j \frac{\partial u'_i}{\partial x_j} }
 = -\frac{1}{\rho_0} \overline{ u'_i \frac{\partial p'}{\partial x_i} }
-+ \overline{ u'_i b'_i }
++ \overline{ u'_j b' }
 + \nu \overline{ u'_i \frac{\partial^2 u'_i}{\partial x_j \partial x_j} }.
 $$
 
@@ -360,7 +362,7 @@ Each term simplifies as follows by applying the product rule where applicable:
    The buoyancy production term remains as is:
 
    $$
-   \overline{ u'_i b'_i }.
+   \overline{ u'_j b' }.
    $$
 
 7. **Viscous diffusion and dissipation**:
@@ -399,7 +401,7 @@ $$
 + \overline{u}_j \frac{\partial e}{\partial x_j}
 + \frac{\partial}{\partial x_j} \left( \frac{1}{2} \overline{ u'_i u'_i u'_j } + \frac{\overline{ u'_j p' }}{\rho_0} - \nu \frac{\partial e}{\partial x_j} \right)
 = -\overline{ u'_i u'_j } \frac{\partial \overline{u}_i}{\partial x_j}
-+ \overline{ u'_i b'_i }
++ \overline{ u'_j b' }
 - \varepsilon.
 $$
 
@@ -413,7 +415,7 @@ $\frac{\partial}{\partial x_j} \left( \frac{1}{2} \overline{ u'_i u'_i u'_j } + 
 
 $-\overline{ u'_i u'_j } \frac{\partial \overline{u}_i}{\partial x_j}$ is the **shear production of TKE**/ generation of TKE from the mean flow
 
-$ \overline{ u'_i b'_i }$ is the **buoyancy production or consumption**. It can both generate turbulence or suppress turbulence.
+$ \overline{ u'_j b' }$ is the **buoyancy production or consumption**. It can both generate turbulence or suppress turbulence.
 
 $\varepsilon$ is the **dissipation rate of turbulence kinetic energy**. Dissipation of TKE can be measured. 
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -394,9 +394,9 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haro-straight-a-tidal-channel">Haro Straight - A tidal channel.</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-vertical-profile-of-temperature-salinity-and-density">Plot vertical profile of temperature, salinity and density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot time series</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Dissipation estimates from shear spectra</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Plot time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Dissipation estimates from shear spectra</a></li>
 </ul>
 </li>
 </ul>
@@ -404,9 +404,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii">Part II</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weddell-sea">Weddell Sea</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-vertical-profile-of-temperature-salinity-density-and-vertical-stratification">Plot vertical profile of temperature, salinity, density and vertical stratification</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Plot time series</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Dissipation estimates from shear spectra</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Plot time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Dissipation estimates from shear spectra</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-vertical-turbulent-heat-flux">Compute the vertical turbulent heat flux</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-law-of-the-wall-model-for-turbulent-dissipation-in-a-boundary-layer-with-the-observations">Compare the law-of-the-wall model for turbulent dissipation in a boundary layer with the observations</a></li>
 </ul>
@@ -426,10 +426,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-the-observation-and-interpretation-of-turbulence-dissipation">
 <h1>Assignment: The observation and interpretation of turbulence dissipation<a class="headerlink" href="#assignment-the-observation-and-interpretation-of-turbulence-dissipation" title="Link to this heading">#</a></h1>
+<p>The goal of the accompanying assignment is to become familiar with working with and interpreting observations of the rate of dissipation of turbulence.
+The assignment is presented in Python, and while any coding language of preference can be used, the easiest would be to ensure that you have an updated version of python working on your local machine with the following dependencies: numpy, matplotlib, pandas, xarray (including h5netcdf) and gsw.
+An environment.yml file is provided in the folder <code class="docutils literal notranslate"><span class="pre">assignments</span></code> which will install all nessecary dependencies provided you have the Anaconda distribution installed.
+From your terminal, run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">environment.yml</span></code>, then <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">turbulence</span></code><br />
+Check that the python packages required are installed and adjust paths to your local machine if needed.</p>
+<p>Completion and submission of the assignment is nessecary for completing the course.</p>
+<hr class="docutils" />
 <p>Turbulent flow is ubiquitous, but not homogeneously distributed.</p>
 <p>One method for observing turbulence is the observation of microstructure shear, from which the rate of turbulence dissipation can be directly computed. Such observations are crucial for understanding the contributions of various sources of turbulence production in the ocean, the turbulence flux of properties and the processes by which TKE is dissipated.</p>
 <p>In this assignment, you will become familiar with the analysis of profiles of the dissipation rate of TKE under a range of forcing conditions.</p>
-<p>Best practices for the processing of microstructure shear data are described in <span id="id1">[<a class="reference internal" href="references.html#id4" title="Rolf Lueck, Ilker Fer, Cynthia Bluteau, Marcus Dengler, Peter Holtermann, Ryuichiro Inoue, Arnaud LeBoyer, Sarah-Anne Nicholson, Kirstin Schulz, and Craig Stevens. Best practices recommendations for estimating dissipation rates from shear probes. Frontiers in Marine Science, 11:1334327, 2024. URL: https://www.frontiersin.org/articles/10.3389/fmars.2024.1334327/full (visited on 2025-02-18), doi:10.3389/fmars.2024.1334327.">LFB+24</a>]</span></p>
+<p>Best practices for the processing of microstructure shear data are described in <span id="id1">[<a class="reference internal" href="references.html#id4" title="Rolf Lueck, Ilker Fer, Cynthia Bluteau, Marcus Dengler, Peter Holtermann, Ryuichiro Inoue, Arnaud LeBoyer, Sarah-Anne Nicholson, Kirstin Schulz, and Craig Stevens. Best practices recommendations for estimating dissipation rates from shear probes. Frontiers in Marine Science, 11:1334327, 2024. URL: https://www.frontiersin.org/articles/10.3389/fmars.2024.1334327/full (visited on 2025-02-18), doi:10.3389/fmars.2024.1334327.">LFB+24</a>]</span> with benchmark datasets described by <span id="id2">[<a class="reference internal" href="references.html#id17" title="Ilker Fer, Marcus Dengler, Arnaud Le Boyer, and Rolf Lueck. Atomix benchmark datasets for dissipation rate measurements using shear probes. Journal of Geophysical Research: Oceans, 2024. URL: https://doi.org/10.1038/s41597-024-03323-y, doi:10.1038/s41597-024-03323-y.">FDLBL24</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
@@ -555,7 +562,7 @@ document.write(`
 </div>
 <section id="plot-vertical-profile-of-temperature">
 <h4>Plot vertical profile of temperature<a class="headerlink" href="#plot-vertical-profile-of-temperature" title="Link to this heading">#</a></h4>
-<p>1.1 Describe what you can about the hydrographic structure from this plot. Can refer to <span id="id2">[<a class="reference internal" href="references.html#id2" title="E. M. Van der Lee and L. Umlauf. Internal wave mixing in the baltic sea: near-inertial waves in the absence of tides. Journal of Geophysical Research, Oceans, 2011. URL: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JC007072.">VdLU11</a>]</span> for context.</p>
+<p>1.1 Describe what you can about the hydrographic structure from this plot. Can refer to <span id="id3">[<a class="reference internal" href="references.html#id2" title="E. M. Van der Lee and L. Umlauf. Internal wave mixing in the baltic sea: near-inertial waves in the absence of tides. Journal of Geophysical Research, Oceans, 2011. URL: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JC007072.">VdLU11</a>]</span> for context.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -665,7 +672,7 @@ Attributes:
 </section>
 <section id="dissipation-estimates-from-shear-spectra">
 <h4>Dissipation estimates from shear spectra<a class="headerlink" href="#dissipation-estimates-from-shear-spectra" title="Link to this heading">#</a></h4>
-<p>Look at the agreement between dissipation estimates from the two spectra. Generally, turbulence can be observed to within a factor of two <span id="id3">[<a class="reference internal" href="references.html#id7" title="J.N. Moum, M.C. Gregg, R.C. Lien, and M.E. Carr. Comparison of turbulence kinetic energy dissipation rate estimates from two ocean microstructure profilers. Journal of Atmospheric and Oceanic Technology, 12(2):346–366, 1995.">MGLC95</a>]</span>.</p>
+<p>Look at the agreement between dissipation estimates from the two spectra. Generally, turbulence can be observed to within a factor of two <span id="id4">[<a class="reference internal" href="references.html#id7" title="J.N. Moum, M.C. Gregg, R.C. Lien, and M.E. Carr. Comparison of turbulence kinetic energy dissipation rate estimates from two ocean microstructure profilers. Journal of Atmospheric and Oceanic Technology, 12(2):346–366, 1995.">MGLC95</a>]</span>.</p>
 <p>1.5) Plot shear spectra at the two dissipation rates that you chose earlier. How does shear spectra relate to dissipation rates?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -913,8 +920,8 @@ Attributes:
 </div>
 </div>
 </section>
-<section id="id4">
-<h4>Plot time series<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<section id="id5">
+<h4>Plot time series<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <p>Like before, below are time series of a) Pressure and Velocity through water, b) vertical shear, c) platform vibrations and d) turbulence dissipation rate.</p>
 <p>1.7) Interpret what might be causing the enhanced vertical shear in b) with reference to the platofrms velocity through water.<br />
 1.8a) Describe the vertical profile of the dissipation rate of turbulence (where dissipation rate is high, where it is low) with reference to the distance from the surface and the temperature profile. Comment on differences to the previous profile in the Baltic Sea.
@@ -967,8 +974,8 @@ Attributes:
 </div>
 </div>
 </section>
-<section id="id5">
-<h4>Create model Nasmyth Spectra for chosen dissipation rates in the data<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h4>Create model Nasmyth Spectra for chosen dissipation rates in the data<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print dissipation values for chosen spectra and create model nasmyth shear spectra</span>
@@ -1001,8 +1008,8 @@ Attributes:
 </div>
 </div>
 </section>
-<section id="id6">
-<h4>Dissipation estimates from shear spectra<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h4>Dissipation estimates from shear spectra<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>Look at the agreement between dissipation estimates from the two spectra. Generally, turbulence can be observed to within a factor of two.</p>
 <p>1.9) Plot shear spectra at the two dissipation rates that you chose earlier. How does shear spectra relate to dissipation rates?</p>
 <div class="cell docutils container">
@@ -1080,7 +1087,7 @@ Attributes:
 <p><span class="caption-number">Fig. 25 </span><span class="caption-text">A Rockland Scientific Microrider mounted on top of a Slocum glider.</span><a class="headerlink" href="#fig-mr-slocum" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In this part, we will focus on a dataset collected by a Rocklands Scientific Microrider that was mounted on a Slocum glider and deployed in the seasonal sea-ice region of the Weddell Sea. Refer to <span id="id7">[<a class="reference internal" href="references.html#id3" title="I. S. Giddy, I. Fer, S. Swart, and S.-A. Nicholson. Vertical convergence of turbulent and double-diffusive heat flux drives warming and erosion of antarctic winter water in summer. Journal of Physical Oceanography, 53(8):1941–1958, 2023. URL: https://journals.ametsoc.org/view/journals/phoc/53/8/JPO-D-22-0259.1.xml (visited on 2024-11-15), doi:10.1175/JPO-D-22-0259.1.">GFSN23</a>]</span> for context.</p>
+<p>In this part, we will focus on a dataset collected by a Rocklands Scientific Microrider that was mounted on a Slocum glider and deployed in the seasonal sea-ice region of the Weddell Sea. Refer to <span id="id8">[<a class="reference internal" href="references.html#id3" title="I. S. Giddy, I. Fer, S. Swart, and S.-A. Nicholson. Vertical convergence of turbulent and double-diffusive heat flux drives warming and erosion of antarctic winter water in summer. Journal of Physical Oceanography, 53(8):1941–1958, 2023. URL: https://journals.ametsoc.org/view/journals/phoc/53/8/JPO-D-22-0259.1.xml (visited on 2024-11-15), doi:10.1175/JPO-D-22-0259.1.">GFSN23</a>]</span> for context.</p>
 <p>As in Part I, start by looking at the spectra and dissipation rates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1277,8 +1284,8 @@ Attributes:
 </div>
 </div>
 </section>
-<section id="id8">
-<h4>Plot time series<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<section id="id9">
+<h4>Plot time series<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>Below are time series of a) Pressure and Velocity through water, b) vertical shear, c) platform vibrations and d) turbulence dissipation rate.</p>
 <p>2.2a) Describe the vertical profile of the dissipation rate of turbulence (where dissipation rate is high, where it is low) with reference to the distance from the surface and the temperature profile.<br />
 2.2b) Select two points, one with high dissipation rate and one with low dissipation rate and overlay vertical lines at these chosen points in subpanels d).</p>
@@ -1329,8 +1336,8 @@ Attributes:
 </div>
 </div>
 </section>
-<section id="id9">
-<h4>Create model Nasmyth Spectra for chosen dissipation rates in the data<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<section id="id10">
+<h4>Create model Nasmyth Spectra for chosen dissipation rates in the data<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print dissipation values for chosen spectra and create model nasmyth shear spectra</span>
@@ -1363,8 +1370,8 @@ Attributes:
 </div>
 </div>
 </section>
-<section id="id10">
-<h4>Dissipation estimates from shear spectra<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<section id="id11">
+<h4>Dissipation estimates from shear spectra<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
 <p>Look at the agreement between dissipation estimates from the two spectra. Generally, turbulence can be observed to within a factor of two.</p>
 <p>2.3) Look at the dissipation estimates from tho probes. At which dissipation rate might you expect to be less condident about the results?</p>
 <p>2.4) Plot shear spectra at the two dissipation rates that you chose earlier. How does shear spectra relate to dissipation rates?</p>
@@ -1438,10 +1445,10 @@ Attributes:
 \mathrm{Kz}=0.2\frac{\epsilon}{N^2}
 \]</div>
 <p>Note that because the Osborn model for eddy diffusivity is calculated as a function of <span class="math notranslate nohighlight">\(N^2\)</span>, it will not be valid in conditions of very small <span class="math notranslate nohighlight">\(N^2\)</span>. Where might this occur?</p>
-<p>Heat flux can be approximated as:</p>
+<p>Heat flux, <span class="math notranslate nohighlight">\(F_h\)</span>, can be approximated as:</p>
 <div class="math notranslate nohighlight">
 \[
-H_f=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
+F_h=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 \]</div>
 <p>2.5) What is the range of Eddy diffusivity? Is this comparable to expected values in the ocean?</p>
 <p>2.6) Where is heat flux the strongest? What are possible explanations for the distribution of heat flux in this profile?</p>
@@ -1511,9 +1518,9 @@ H_f=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 &lt;&gt;:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
 &lt;&gt;:18: SyntaxWarning: invalid escape sequence &#39;\e&#39;
 &lt;&gt;:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
-/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_49761/2509822319.py:18: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2509822319.py:18: SyntaxWarning: invalid escape sequence &#39;\e&#39;
   ax[0].set_xlabel(&#39;$\epsilon \ (m^3s^{-2})$&#39;)
-/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_49761/2509822319.py:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
+/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2509822319.py:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
   ax[1].set_xlabel(&#39;$K_z \ (m^2s^{-1})$&#39;)
 </pre></div>
 </div>
@@ -1547,7 +1554,7 @@ H_f=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_49761/2175224984.py:5: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2175224984.py:5: RuntimeWarning: divide by zero encountered in divide
   eps_low=ustar**3/(k*z)
 </pre></div>
 </div>
@@ -1574,11 +1581,11 @@ H_f=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
 &lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
-/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_49761/2234889368.py:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2234889368.py:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
   plt.xlabel(&#39;$\epsilon$ [W kg$^{-1}$]&#39;)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16ca182d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x30b9042d0&gt;
 </pre></div>
 </div>
 <img alt="_images/9cf500bb78de9d1e40e3363e0914cd277a79e7fa2facb5945a753205406bc1f7.png" src="_images/9cf500bb78de9d1e40e3363e0914cd277a79e7fa2facb5945a753205406bc1f7.png" />
@@ -1663,9 +1670,9 @@ H_f=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haro-straight-a-tidal-channel">Haro Straight - A tidal channel.</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-vertical-profile-of-temperature-salinity-and-density">Plot vertical profile of temperature, salinity and density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot time series</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Dissipation estimates from shear spectra</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Plot time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Dissipation estimates from shear spectra</a></li>
 </ul>
 </li>
 </ul>
@@ -1673,9 +1680,9 @@ H_f=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii">Part II</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weddell-sea">Weddell Sea</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-vertical-profile-of-temperature-salinity-density-and-vertical-stratification">Plot vertical profile of temperature, salinity, density and vertical stratification</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Plot time series</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Dissipation estimates from shear spectra</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Plot time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Create model Nasmyth Spectra for chosen dissipation rates in the data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Dissipation estimates from shear spectra</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-vertical-turbulent-heat-flux">Compute the vertical turbulent heat flux</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-law-of-the-wall-model-for-turbulent-dissipation-in-a-boundary-layer-with-the-observations">Compare the law-of-the-wall model for turbulent dissipation in a boundary layer with the observations</a></li>
 </ul>

@@ -610,7 +610,8 @@ e = \frac{1}{2} \overline{u'_i u'_i}.
 \]</div>
 <p>To derive the <strong>TKE equation</strong>, multiply the fluctuating Navier-Stokes equation by <span class="math notranslate nohighlight">\( u'_i \)</span> and take the Reynolds average. After considerable manipulation the TKE equation for horizontally homogeneous flow emerges.<br />
 Here we take cartesian coordinates E.g: <span class="math notranslate nohighlight">\(u_i = u_1 + u_2 + u_3 = u + v + w\)</span><br />
-Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_iu_j = u,w, x_j=z\)</span>.</p>
+Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_iu_j = u,w, x_j=z\)</span>. Note buoyancy only acts in the z-direction.</p>
+<!-- check if mulitply through by u_i or u_j -->
 <div class="math notranslate nohighlight">
 \[
 \overline{ u'_i \frac{\partial u'_i}{\partial t} }
@@ -618,7 +619,7 @@ Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_i
 + \overline{ u'_i u'_j \frac{\partial \overline{u}_i}{\partial x_j} }
 + \overline{ u'_i u'_j \frac{\partial u'_i}{\partial x_j} }
 = -\frac{1}{\rho_0} \overline{ u'_i \frac{\partial p'}{\partial x_i} }
-+ \overline{ u'_i b'_i }
++ \overline{ u'_j b' }
 + \nu \overline{ u'_i \frac{\partial^2 u'_i}{\partial x_j \partial x_j} }.
 \]</div>
 <p>Each term simplifies as follows by applying the product rule where applicable:</p>
@@ -740,7 +741,7 @@ Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_i
 <p>The buoyancy production term remains as is:</p>
 <div class="math notranslate nohighlight">
 \[
-   \overline{ u'_i b'_i }.
+   \overline{ u'_j b' }.
    \]</div>
 </li>
 <li><p><strong>Viscous diffusion and dissipation</strong>:</p>
@@ -774,7 +775,7 @@ Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_i
 + \overline{u}_j \frac{\partial e}{\partial x_j}
 + \frac{\partial}{\partial x_j} \left( \frac{1}{2} \overline{ u'_i u'_i u'_j } + \frac{\overline{ u'_j p' }}{\rho_0} - \nu \frac{\partial e}{\partial x_j} \right)
 = -\overline{ u'_i u'_j } \frac{\partial \overline{u}_i}{\partial x_j}
-+ \overline{ u'_i b'_i }
++ \overline{ u'_j b' }
 - \varepsilon.
 \]</div>
 <p>where:</p>
@@ -782,7 +783,7 @@ Solve for z-direction: <span class="math notranslate nohighlight">\(i=1,j=3: u_i
 <p><span class="math notranslate nohighlight">\(\overline{u}_j \frac{\partial e}{\partial x_j}\)</span> is the <strong>advection of TKE by the mean flow</strong></p>
 <p><span class="math notranslate nohighlight">\(\frac{\partial}{\partial x_j} \left( \frac{1}{2} \overline{ u'_i u'_i u'_j } + \frac{\overline{ u'_j p' }}{\rho_0} - \nu \frac{\partial e}{\partial x_j} \right)\)</span> is the <strong>divergence of turbulent transport</strong>: turbulent transport of TKE, the resdistribution of turbulence by pressure fluctuations and the transport of TKE due to molecular viscosity.</p>
 <p><span class="math notranslate nohighlight">\(-\overline{ u'_i u'_j } \frac{\partial \overline{u}_i}{\partial x_j}\)</span> is the <strong>shear production of TKE</strong>/ generation of TKE from the mean flow</p>
-<p><span class="math notranslate nohighlight">\( \overline{ u'_i b'_i }\)</span> is the <strong>buoyancy production or consumption</strong>. It can both generate turbulence or suppress turbulence.</p>
+<p><span class="math notranslate nohighlight">\( \overline{ u'_j b' }\)</span> is the <strong>buoyancy production or consumption</strong>. It can both generate turbulence or suppress turbulence.</p>
 <p><span class="math notranslate nohighlight">\(\varepsilon\)</span> is the <strong>dissipation rate of turbulence kinetic energy</strong>. Dissipation of TKE can be measured.</p>
 <hr class="docutils" />
 <p>The following figure shows the steady state TKE budget for convective and stabilising cases in the ocean surface boundary layer.</p>
