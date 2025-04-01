@@ -20,7 +20,7 @@ $$
 \mathrm{Re} = \frac{DV}{\nu},
 $$
 
-named, the Reynolds number. For $\mathrm{Re}$ smaller than 1900  he found laminar flow, whereas for $\mathrm{Re}$ larger than 2000, the flow shoed a transition to irregular turbulent motions. The Reynolds number describes the ration of turbulent diffusivity to molecular diffusivity.
+named, the Reynolds number. For $\mathrm{Re}$ smaller than 1900  he found laminar flow, whereas for $\mathrm{Re}$ larger than 2000, the flow shoed a transition to irregular turbulent motions. The Reynolds number describes the ration of turbulent diffusivity to molecular diffusivity. In the ocean, turbulence occure at Re ~ 200.
 
 It also describes the ratio of small to large structures. Recall da Vinci's sketch. Highly turbulent fluids will have a large Reynolds number because the number of small structures will be much greater than the number of large structures. 
 
@@ -114,7 +114,7 @@ Recall the TKE budget equation assuming steady, homogeneous, 1D *stratified* she
 
 $$
 \underbrace{\overline{ u'_i u'_j } \frac{\partial \overline{u}_i}{\partial x_j}}_{\text{Shear production}}
-+ \underbrace{\overline{ u'_i b'_i }}_{\text{Buoyancy production/consumption}}
++ \underbrace{\overline{ u'_j b_i' }}_{\text{Buoyancy production/consumption}}
 - \underbrace{\varepsilon}_{\text{dissipation rate of TKE}} = 0
 $$
 
