@@ -6,7 +6,7 @@ The module is given over 4 days and provides a brief introduction to turbulence 
 
 **Assignment**  
 The goal of the accompanying assignment is to become familiar with working with and interpreting observations of the rate of dissipation of turbulence. 
-The assignment is presented in Python, and while any coding language of preference can be used, the easiest would be to ensure that you have an updated version of python working on your local machine with the following dependencies: numpy, matplotlib, pandas, xarray (including h5netcdf) and gsw.
+The assignment is presented in Python, and while any coding language of preference can be used, the easiest would be to ensure that you have an updated version of python working on your local machine with the following dependencies: numpy, scipy, matplotlib, pandas, xarray (including h5netcdf) and gsw.
 An environment.yml file is provided which will install all nessecary dependencies provided you have the Anaconda distribution installed. 
 From your terminal, run ```conda env create -f environment.yml```, then ```conda activate turbulence```
 

@@ -108,6 +108,8 @@ where $L = \frac{u_*^3}{\kappa B_0}$. The Monin-Obukhov length scale characteriz
 A schematic representation of turbulence and flow near a boundary in different buoyancy regimes. Under convective conditions, horizontal velocity will be reduced compared to neutral and under stabilizing conditions, shear turbulence will be suppressed and horizontal velocities will be enhanced (e.g. diurnal jet). (Fig 3.6, Thorpe 2007). 
 ```
 
+When convective conditions occur, convection overturning cells mix out vertical shear, reducing shear production relative to LOW. Under stabilising buoyancy forcing, vertical shear is enhanced, increasing shear production relative to LOW. This scaling of vertical shear is related to buoyancy forcing through the stability parameter, $\zeta$, related to the Monin-Obukhov lengthscale. 
+
 The effects of buoyancy forcing on the canonical "law of the wall" was shown empirically in the Kansas experiments over wheat fields in 1971 {cite}`businger_1971` by measuring wind speeds with anemometors and the fluctuating wind components with sonic anemometors. 
 
 ```{figure} images/businger_1971.png
@@ -117,8 +119,9 @@ The effects of buoyancy forcing on the canonical "law of the wall" was shown emp
 
 Comparison of dimensionless wind shear observations taken during the Kansas Experiment (Fig 1., Businger et al., 1971)
 ```
+In the figure above, negative $\zeta$ represents destabilizing conditions, while positive $\zeta$ represents stabilising conditions. At $\zeta=0$, forcing is neutral and the non-dimensional vertical shear $\phi=1$, where $\phi=\frac{du}{dz} \frac{\kappa z}{u_*}$. Under destabilising forcing, $\phi$ is less than 1, reducing the LOW predicted shear and under stabilising forcing, $\phi$ is greater than 1, increasing shear compared to LOW.  
 
-In this sense, the "law-of-the-wall" approximation for dissipation can be modified to a function of both friction velocity, $u_*$ and buoyancy, $B_0$. 
+In this way, the "law-of-the-wall" approximation for dissipation can be modified to a function of both friction velocity, $u_*$ and buoyancy, $B_0$. 
 
 $$
 \varepsilon = \mathrm{A}\frac{u_*^3}{\kappa |z|} + \mathrm{B}B_0,
