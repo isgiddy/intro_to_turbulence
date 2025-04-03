@@ -9,4 +9,6 @@ dependencies:
   - xarray
   - h5netcdf
   - gsw
+  - scipy
   - jupyterlab
+
