@@ -1,8 +1,9 @@
 # The importance of turbulence in the ocean
 
-The ocean maintains steady state stratification. 
+The ocean maintains steady state stratification. Without turbulent mixing, the ocean would not be stratified. But how is this stratification maintained?   
 
-Without turbulent mixing, the ocean would not be stratified. But how is this stratification maintained? 
+The downwelling vertical transport in regions of deep water formation (North Atlantic, Antarctic shelves) must be balanced by upwelling vertical transport (part from upwelling at the Antarctic Polar Front of the Antarctic Circumpolar Current, and the rest a small upwelling distributed through the ocean). This small upwelling, $w$, is a key component contributing the steady state ocean and related to the eddy diffusivity.     
+
 
 ```{figure} images/woce.png
 :name: fig-woce
@@ -20,7 +21,7 @@ $$
 
 some diffusion of heat is required to balance the vertical transport of water upwards. 
 
-Walter Munk {cite}`munk_abyssal_1966` took a vertical profile of temperature to 4000 m and, by fitting an exponential curve $f(z,K_z,w)$ to an observed buoyancy profile, deduced the eddy diffusivity, $K_z$, required to maintain the observed stratification ~ 10$^{-4}$ m$^2$s$^{-1}$. This number has since been observed in parts of the ocean, but is known to vary. 
+Walter Munk {cite}`munk_abyssal_1966` took a vertical profile of temperature to 4000 m and, by fitting an exponential curve $f(z,K_z,w)$ to an observed buoyancy profile, deduced the eddy diffusivity, $K_z$, required to maintain the observed stratification ~ 10$^{-4}$ m$^2$s$^{-1}$. This number has since been observed in parts of the ocean, but found to be heterogeneous {cite}`polzin_1997`. 
 
 ```{figure} images/munk_tprofile.png
 :name: fig-munk
@@ -55,3 +56,5 @@ Where does this energy come from?
 
 Budget of energy flux to the deep ocean. Adapted and updated from {cite}`munk_abyssal_1998`.
 ```
+
+You can see from this schematic that most of the energy is transferred to the deep ocean through internal waves. An overview of the state-of-art regarding internal waves is given by Mackinnon et al (2017) {cite}`mackinnon_2017`. 

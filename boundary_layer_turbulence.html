@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -497,6 +497,7 @@ U(z) = \frac{u_*}{\kappa} [ln(z)-ln(z_0)],
 <p><span class="caption-number">Fig. 15 </span><span class="caption-text">A schematic representation of turbulence and flow near a boundary in different buoyancy regimes. Under convective conditions, horizontal velocity will be reduced compared to neutral and under stabilizing conditions, shear turbulence will be suppressed and horizontal velocities will be enhanced (e.g. diurnal jet). (Fig 3.6, Thorpe 2007).</span><a class="headerlink" href="#fig-mo-schematic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p>When convective conditions occur, convection overturning cells mix out vertical shear, reducing shear production relative to LOW. Under stabilising buoyancy forcing, vertical shear is enhanced, increasing shear production relative to LOW. This scaling of vertical shear is related to buoyancy forcing through the stability parameter, <span class="math notranslate nohighlight">\(\zeta\)</span>, related to the Monin-Obukhov lengthscale.</p>
 <p>The effects of buoyancy forcing on the canonical “law of the wall” was shown empirically in the Kansas experiments over wheat fields in 1971 <span id="id5">[<a class="reference internal" href="references.html#id6" title="J. A. Businger, J. C. Wyngaard, Y. Izumi, and E. F. Bradley. Flux-profile relationships in the atmospheric surface layer. Journal of Atmospheric Sciences, 28(2):181-189, 1971. URL: https://doi.org/10.1175/1520-0469(1971)028&lt;0181:FPRITA&gt;2.0.CO;2.">BWIB71</a>]</span> by measuring wind speeds with anemometors and the fluctuating wind components with sonic anemometors.</p>
 <figure class="align-center" id="fig-mo-obs">
 <a class="reference internal image-reference" href="_images/businger_1971.png"><img alt="_images/businger_1971.png" src="_images/businger_1971.png" style="width: 60%;" />
@@ -505,7 +506,8 @@ U(z) = \frac{u_*}{\kappa} [ln(z)-ln(z_0)],
 <p><span class="caption-number">Fig. 16 </span><span class="caption-text">Comparison of dimensionless wind shear observations taken during the Kansas Experiment (Fig 1., Businger et al., 1971)</span><a class="headerlink" href="#fig-mo-obs" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In this sense, the “law-of-the-wall” approximation for dissipation can be modified to a function of both friction velocity, <span class="math notranslate nohighlight">\(u_*\)</span> and buoyancy, <span class="math notranslate nohighlight">\(B_0\)</span>.</p>
+<p>In the figure above, negative <span class="math notranslate nohighlight">\(\zeta\)</span> represents destabilizing conditions, while positive <span class="math notranslate nohighlight">\(\zeta\)</span> represents stabilising conditions. At <span class="math notranslate nohighlight">\(\zeta=0\)</span>, forcing is neutral and the non-dimensional vertical shear <span class="math notranslate nohighlight">\(\phi=1\)</span>, where <span class="math notranslate nohighlight">\(\phi=\frac{du}{dz} \frac{\kappa z}{u_*}\)</span>. Under destabilising forcing, <span class="math notranslate nohighlight">\(\phi\)</span> is less than 1, reducing the LOW predicted shear and under stabilising forcing, <span class="math notranslate nohighlight">\(\phi\)</span> is greater than 1, increasing shear compared to LOW.</p>
+<p>In this way, the “law-of-the-wall” approximation for dissipation can be modified to a function of both friction velocity, <span class="math notranslate nohighlight">\(u_*\)</span> and buoyancy, <span class="math notranslate nohighlight">\(B_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
 \varepsilon = \mathrm{A}\frac{u_*^3}{\kappa |z|} + \mathrm{B}B_0,

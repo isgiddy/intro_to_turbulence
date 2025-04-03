@@ -427,7 +427,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-the-observation-and-interpretation-of-turbulence-dissipation">
 <h1>Assignment: The observation and interpretation of turbulence dissipation<a class="headerlink" href="#assignment-the-observation-and-interpretation-of-turbulence-dissipation" title="Link to this heading">#</a></h1>
 <p>The goal of the accompanying assignment is to become familiar with working with and interpreting observations of the rate of dissipation of turbulence.
-The assignment is presented in Python, and while any coding language of preference can be used, the easiest would be to ensure that you have an updated version of python working on your local machine with the following dependencies: numpy, matplotlib, pandas, xarray (including h5netcdf) and gsw.
+The assignment is presented in Python, and while any coding language of preference can be used, the easiest would be to ensure that you have an updated version of python working on your local machine with the following dependencies: numpy, scipy, matplotlib, pandas, xarray (including h5netcdf) and gsw.
 An environment.yml file is provided in the folder <code class="docutils literal notranslate"><span class="pre">assignments</span></code> which will install all nessecary dependencies provided you have the Anaconda distribution installed.
 From your terminal, run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">environment.yml</span></code>, then <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">turbulence</span></code><br />
 Check that the python packages required are installed and adjust paths to your local machine if needed.</p>
@@ -560,6 +560,401 @@ Check that the python packages required are installed and adjust paths to your l
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat_bL4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1f1f1f;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 13kB
+Dimensions:         (TIME_SPECTRA: 61, N_SHEAR_SENSORS: 2)
+Dimensions without coordinates: TIME_SPECTRA, N_SHEAR_SENSORS
+Data variables: (12/16)
+    TIME            (TIME_SPECTRA) datetime64[ns] 488B ...
+    EPSI            (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...
+    EPSI_FINAL      (TIME_SPECTRA) float64 488B ...
+    SECTION_NUMBER  (TIME_SPECTRA) float64 488B ...
+    PSPD_REL        (TIME_SPECTRA) float64 488B ...
+    PRES            (TIME_SPECTRA) float64 488B ...
+    ...              ...
+    EPSI_STD        (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...
+    N_S             (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...
+    KMAX            (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...
+    KMIN            (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...
+    EPSI_FLAGS      (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...
+    METHOD          (N_SHEAR_SENSORS, TIME_SPECTRA) float64 976B ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-4c69dac0-3544-4815-9b0d-218cb91be19c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4c69dac0-3544-4815-9b0d-218cb91be19c' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>TIME_SPECTRA</span>: 61</li><li><span>N_SHEAR_SENSORS</span>: 2</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-020fcbc5-80f5-4624-af77-8845cbba884d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-020fcbc5-80f5-4624-af77-8845cbba884d' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-3385c8f5-4644-48c6-be43-98b09f537f2a' class='xr-section-summary-in' type='checkbox'  ><label for='section-3385c8f5-4644-48c6-be43-98b09f537f2a' class='xr-section-summary' >Data variables: <span>(16)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>TIME</span></div><div class='xr-var-dims'>(TIME_SPECTRA)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-664988c5-ad6e-4f18-ba92-6d311e9516a0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-664988c5-ad6e-4f18-ba92-6d311e9516a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-89c25547-5ccb-4156-8cfe-19f3c0b49400' class='xr-var-data-in' type='checkbox'><label for='data-89c25547-5ccb-4156-8cfe-19f3c0b49400' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Decimal day</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>[61 values with dtype=datetime64[ns]]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EPSI</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-99f6a80e-f122-4c56-9c0a-3799acf00e41' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-99f6a80e-f122-4c56-9c0a-3799acf00e41' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-790bb142-5e59-4cab-824f-913e958b7f63' class='xr-var-data-in' type='checkbox'><label for='data-790bb142-5e59-4cab-824f-913e958b7f63' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>specific_turbulent_kinetic_energy_dissipation_in_sea_water</dd><dt><span>units :</span></dt><dd>W kg-1</dd><dt><span>long_name :</span></dt><dd>dissipation rate of turbulent kinetic energy per unit mass in sea water estimated from individual shear probes</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EPSI_FINAL</span></div><div class='xr-var-dims'>(TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-602d9310-c9de-40b7-a8db-6e56e104155f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-602d9310-c9de-40b7-a8db-6e56e104155f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38826c28-658e-41c4-8d14-353f513a2385' class='xr-var-data-in' type='checkbox'><label for='data-38826c28-658e-41c4-8d14-353f513a2385' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>specific_turbulent_kinetic_energy_dissipation_in_sea_water</dd><dt><span>units :</span></dt><dd>W kg-1</dd><dt><span>long_name :</span></dt><dd>dissipation rate of turbulent kinetic energy per unit mass in sea water averaged using all accepted shear probes</dd></dl></div><div class='xr-var-data'><pre>[61 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>SECTION_NUMBER</span></div><div class='xr-var-dims'>(TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-95660d2a-0f08-441a-9355-e40454391de6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-95660d2a-0f08-441a-9355-e40454391de6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3e153237-e06c-43d9-a634-1357c2ec9d9f' class='xr-var-data-in' type='checkbox'><label for='data-3e153237-e06c-43d9-a634-1357c2ec9d9f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>unique_identifier_for_each_section_of_data_from_timeseries</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>long_name :</span></dt><dd>A unique indentifier counter defining sections of the time series extracted for dissipation estimates</dd></dl></div><div class='xr-var-data'><pre>[61 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>PSPD_REL</span></div><div class='xr-var-dims'>(TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-898cfd98-1766-41cf-8b45-5d6a22b8e76d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-898cfd98-1766-41cf-8b45-5d6a22b8e76d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-826e1348-2c87-43d3-97e9-d7ed9b932042' class='xr-var-data-in' type='checkbox'><label for='data-826e1348-2c87-43d3-97e9-d7ed9b932042' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>platform_speed_wrt_sea_water</dd><dt><span>units :</span></dt><dd>m s-1</dd><dt><span>long_name :</span></dt><dd>Platform speed with respect to sea water</dd></dl></div><div class='xr-var-data'><pre>[61 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>PRES</span></div><div class='xr-var-dims'>(TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-85df06a8-a534-4472-9220-9db608b73856' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-85df06a8-a534-4472-9220-9db608b73856' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2d9e3728-c467-4740-bc38-99cb122bbb4d' class='xr-var-data-in' type='checkbox'><label for='data-2d9e3728-c467-4740-bc38-99cb122bbb4d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>sea_water_pressure</dd><dt><span>units :</span></dt><dd>decibar</dd><dt><span>long_name :</span></dt><dd>Sea water pressure, equals 0 at sea-level</dd></dl></div><div class='xr-var-data'><pre>[61 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>FOM</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-504f4d90-6c4d-4478-9dc6-77c032e65958' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-504f4d90-6c4d-4478-9dc6-77c032e65958' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bb95d714-6347-44ec-b5bc-ee3ed1203eeb' class='xr-var-data-in' type='checkbox'><label for='data-bb95d714-6347-44ec-b5bc-ee3ed1203eeb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>figure_of_merit</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>long_name :</span></dt><dd>The MAD of the spectrum relative to the 97.5 percentile of the expected MAD for the number of spectral points used to estimate the rate of dissipation</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MAD</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c3d7091a-f374-4aed-b617-4ecd65a34314' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c3d7091a-f374-4aed-b617-4ecd65a34314' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61b46036-ae30-4a1a-98b7-928be2522230' class='xr-var-data-in' type='checkbox'><label for='data-61b46036-ae30-4a1a-98b7-928be2522230' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>mean_absolute_deviation</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>long_name :</span></dt><dd>mean absolute deviation of the natural logarithm of the shear spectrum from the logarithm of a reference spectrum forthe estiate rate of dissipation</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>VAR_RESOLVED</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0611094b-3d51-499b-a701-5dc06f09e1f0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0611094b-3d51-499b-a701-5dc06f09e1f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2adb4678-4a00-4e1e-aefa-a46f0c94fa5c' class='xr-var-data-in' type='checkbox'><label for='data-2adb4678-4a00-4e1e-aefa-a46f0c94fa5c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>variance_resolved</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>long_name :</span></dt><dd>variance resolved by spectral integration for the estimiate rate of dissipation</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>KVISC</span></div><div class='xr-var-dims'>(TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c74791db-9d9f-4c20-be41-eec918313823' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c74791db-9d9f-4c20-be41-eec918313823' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-83d03cbc-52c1-4685-b5bd-2eabc87d547a' class='xr-var-data-in' type='checkbox'><label for='data-83d03cbc-52c1-4685-b5bd-2eabc87d547a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>kinematic_viscosity_of_water</dd><dt><span>units :</span></dt><dd>m2 s-1</dd><dt><span>long_name :</span></dt><dd>Kinematic viscosity of sea water</dd><dt><span>comment :</span></dt><dd>Viscosity calculated with TEMP_CTD and CNDC_CTD</dd></dl></div><div class='xr-var-data'><pre>[61 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EPSI_STD</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0d821416-f69a-4a8a-b7bb-543d1db2ffdb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d821416-f69a-4a8a-b7bb-543d1db2ffdb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c19a7c1b-31ba-4a3c-b911-1f2a2a562d0e' class='xr-var-data-in' type='checkbox'><label for='data-c19a7c1b-31ba-4a3c-b911-1f2a2a562d0e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>expected_standard_deviation_of_the_ logarithm_of_the_dissipation_estimate</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>N_S</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-50a833ad-4c6f-4945-b95d-c73066781bfa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-50a833ad-4c6f-4945-b95d-c73066781bfa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c21b309d-445d-4917-8b02-7c83b61fdc46' class='xr-var-data-in' type='checkbox'><label for='data-c21b309d-445d-4917-8b02-7c83b61fdc46' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>number_of_spectral_points_used_for_estimating_turbulent_kinetic_energy_dissipation</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>KMAX</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a152586b-7306-4c64-86e4-16bd56c48b9e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a152586b-7306-4c64-86e4-16bd56c48b9e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5c51b003-828a-4d1e-8526-e5b295ea6d32' class='xr-var-data-in' type='checkbox'><label for='data-5c51b003-828a-4d1e-8526-e5b295ea6d32' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>maximum_wavenumber_used_for_estimating_ turbulent_kinetic_energy_dissipation</dd><dt><span>units :</span></dt><dd>cpm</dd><dt><span>long_name :</span></dt><dd>maximum wavenumber for integration of shear spectrum</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>KMIN</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-6cee2fd8-fa44-47f3-a312-ed3360c2eea2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6cee2fd8-fa44-47f3-a312-ed3360c2eea2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8843aa4b-46e3-42d4-bf53-2ccfed19e628' class='xr-var-data-in' type='checkbox'><label for='data-8843aa4b-46e3-42d4-bf53-2ccfed19e628' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>minimum_wavenumber_used_for_estimating_ turbulent_kinetic_energy_dissipation</dd><dt><span>units :</span></dt><dd>cpm</dd><dt><span>long_name :</span></dt><dd>minimum wavenumber for integration of shear spectrum</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EPSI_FLAGS</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-7b345f23-ad60-405e-a2ce-9202b8a03a57' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7b345f23-ad60-405e-a2ce-9202b8a03a57' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-455e671b-bd9d-4861-abbe-99e1a624d27a' class='xr-var-data-in' type='checkbox'><label for='data-455e671b-bd9d-4861-abbe-99e1a624d27a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>dissipation_qc_flag</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>long_name :</span></dt><dd>quality control coding for dissipation estimate from each shear probe</dd><dt><span>conventions :</span></dt><dd>ATOMIX, shear probes group</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>METHOD</span></div><div class='xr-var-dims'>(N_SHEAR_SENSORS, TIME_SPECTRA)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0d9b07c4-7a8c-478d-91fb-2605f982db9d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d9b07c4-7a8c-478d-91fb-2605f982db9d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d780510-0c64-422d-80ea-a57bdf82669e' class='xr-var-data-in' type='checkbox'><label for='data-0d780510-0c64-422d-80ea-a57bdf82669e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>dissipation_method</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>long_name :</span></dt><dd>method_used_for_estimating_ turbulent_kinetic_energy_dissipation</dd><dt><span>conventions :</span></dt><dd>ATOMIX, shear probes group</dd></dl></div><div class='xr-var-data'><pre>[122 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-826ae666-cd11-4990-831c-f81427db2dd4' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-826ae666-cd11-4990-831c-f81427db2dd4' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-4c433f38-cb69-4b56-a932-c6d359952dc2' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4c433f38-cb69-4b56-a932-c6d359952dc2' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
 <section id="plot-vertical-profile-of-temperature">
 <h4>Plot vertical profile of temperature<a class="headerlink" href="#plot-vertical-profile-of-temperature" title="Link to this heading">#</a></h4>
 <p>1.1 Describe what you can about the hydrographic structure from this plot. Can refer to <span id="id3">[<a class="reference internal" href="references.html#id2" title="E. M. Van der Lee and L. Umlauf. Internal wave mixing in the baltic sea: near-inertial waves in the absence of tides. Journal of Geophysical Research, Oceans, 2011. URL: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JC007072.">VdLU11</a>]</span> for context.</p>
@@ -616,7 +1011,7 @@ Check that the python packages required are installed and adjust paths to your l
 <span class="c1">### EDIT HERE, only dummies used</span>
 <span class="c1"># 1.3b: identify two regions of dissipation (strong versus quiescent) </span>
 <span class="n">i</span><span class="o">=</span> <span class="mi">1</span>   <span class="c1"># strong dissipation</span>
-<span class="n">j</span><span class="o">=</span> <span class="mi">2</span>   <span class="c1"># weak dissipation</span>
+<span class="n">j</span><span class="o">=</span> <span class="mi">50</span>   <span class="c1"># weak dissipation</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dat_bL4</span><span class="o">.</span><span class="n">TIME</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dat_bL4</span><span class="o">.</span><span class="n">TIME</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -631,7 +1026,7 @@ Check that the python packages required are installed and adjust paths to your l
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;time&#39;)
 </pre></div>
 </div>
-<img alt="_images/8a6266afa3b9f6390b49ab0ed84e18cedd9f32e92a1008c7d710b8682a3c738c.png" src="_images/8a6266afa3b9f6390b49ab0ed84e18cedd9f32e92a1008c7d710b8682a3c738c.png" />
+<img alt="_images/2c8461e825f620283d4303a1e74ee45334dd8ac5b9fd39d434e78833244bf762.png" src="_images/2c8461e825f620283d4303a1e74ee45334dd8ac5b9fd39d434e78833244bf762.png" />
 </div>
 </div>
 </section>
@@ -660,7 +1055,7 @@ Attributes:
     units:          W kg-1
     long_name:      dissipation rate of turbulent kinetic energy per unit mas...
 &lt;xarray.DataArray &#39;EPSI_FINAL&#39; ()&gt; Size: 8B
-array(5.477681e-08)
+array(6.033673e-10)
 Attributes:
     standard_name:  specific_turbulent_kinetic_energy_dissipation_in_sea_water
     units:          W kg-1
@@ -731,7 +1126,7 @@ Attributes:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\Psi$ $[s^{-2}\\mathrm{cpm}^{-1}]$&#39;)
 </pre></div>
 </div>
-<img alt="_images/c86dc739fba4c769b0102aa471a9004b0ccc7857f22f5b33bfb8aee30d9837b9.png" src="_images/c86dc739fba4c769b0102aa471a9004b0ccc7857f22f5b33bfb8aee30d9837b9.png" />
+<img alt="_images/011c2ae1e6ffb6ba793161e5536ee25d8ca2cb8c82eddc5c5d0e221b1bb83313.png" src="_images/011c2ae1e6ffb6ba793161e5536ee25d8ca2cb8c82eddc5c5d0e221b1bb83313.png" />
 </div>
 </div>
 </section>
@@ -954,8 +1349,8 @@ Attributes:
 
 <span class="c1">### EDIT HERE, only dummies used</span>
 <span class="c1">#identify two regions of dissipation (strong versus quiescent) </span>
-<span class="n">i</span><span class="o">=</span> <span class="mi">1</span>   <span class="c1"># strong dissipation</span>
-<span class="n">j</span><span class="o">=</span> <span class="mi">2</span>   <span class="c1"># weak dissipation</span>
+<span class="n">i</span><span class="o">=</span> <span class="mi">20</span>   <span class="c1"># strong dissipation</span>
+<span class="n">j</span><span class="o">=</span> <span class="mi">1</span>   <span class="c1"># weak dissipation</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dat_hL4</span><span class="o">.</span><span class="n">TIME</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dat_hL4</span><span class="o">.</span><span class="n">TIME</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -970,7 +1365,7 @@ Attributes:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;time&#39;)
 </pre></div>
 </div>
-<img alt="_images/ff4f11a97759b9a032dc8f9d21bf511526707bf5debab5af5df143bd62368e1d.png" src="_images/ff4f11a97759b9a032dc8f9d21bf511526707bf5debab5af5df143bd62368e1d.png" />
+<img alt="_images/0d26fcee08a831db8ddf158411c0be99417c88634ade2ee7b9ab1b09787fae3b.png" src="_images/0d26fcee08a831db8ddf158411c0be99417c88634ade2ee7b9ab1b09787fae3b.png" />
 </div>
 </div>
 </section>
@@ -992,13 +1387,13 @@ Attributes:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;EPSI_FINAL&#39; ()&gt; Size: 8B
-array(2.579372e-07)
+array(4.216252e-06)
 Attributes:
     standard_name:  specific_turbulent_kinetic_energy_dissipation_in_sea_water
     units:          W kg-1
     long_name:      dissipation rate of turbulent kinetic energy per unit mas...
 &lt;xarray.DataArray &#39;EPSI_FINAL&#39; ()&gt; Size: 8B
-array(3.521117e-06)
+array(2.579372e-07)
 Attributes:
     standard_name:  specific_turbulent_kinetic_energy_dissipation_in_sea_water
     units:          W kg-1
@@ -1069,7 +1464,7 @@ Attributes:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\Psi$ $[s^{-2}\\mathrm{cpm}^{-1}]$&#39;)
 </pre></div>
 </div>
-<img alt="_images/0ef4f86e890e1a47e7d476053243b065171c7de832745aa777ca515c54a62fe9.png" src="_images/0ef4f86e890e1a47e7d476053243b065171c7de832745aa777ca515c54a62fe9.png" />
+<img alt="_images/289bddae92df5e65fbbf01afb2f5d25fb0e798ff5e8c6b49707475d217ac4347.png" src="_images/289bddae92df5e65fbbf01afb2f5d25fb0e798ff5e8c6b49707475d217ac4347.png" />
 </div>
 </div>
 </section>
@@ -1316,8 +1711,8 @@ Attributes:
 
 <span class="c1">### EDIT HERE, only dummies used</span>
 <span class="c1"># identify two regions of dissipation (strong versus quiescent) </span>
-<span class="n">i</span><span class="o">=</span> <span class="mi">1</span>   <span class="c1"># strong dissipation</span>
-<span class="n">j</span><span class="o">=</span> <span class="mi">2</span>   <span class="c1"># weak dissipation</span>
+<span class="n">i</span><span class="o">=</span> <span class="mi">6</span>   <span class="c1"># strong dissipation</span>
+<span class="n">j</span><span class="o">=</span> <span class="mi">90</span>  <span class="c1"># weak dissipation</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dat_wL4</span><span class="o">.</span><span class="n">TIME</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dat_wL4</span><span class="o">.</span><span class="n">TIME</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1332,7 +1727,7 @@ Attributes:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;time&#39;)
 </pre></div>
 </div>
-<img alt="_images/f15a7d73b257ba2494b567726436c5924ab418fc31b45429144e5439c02405bc.png" src="_images/f15a7d73b257ba2494b567726436c5924ab418fc31b45429144e5439c02405bc.png" />
+<img alt="_images/07aab23a83ea665da4e98f1c4ffd0dbe95e980f4725a865ecf113f216cc04ddf.png" src="_images/07aab23a83ea665da4e98f1c4ffd0dbe95e980f4725a865ecf113f216cc04ddf.png" />
 </div>
 </div>
 </section>
@@ -1354,13 +1749,13 @@ Attributes:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;EPSI_FINAL&#39; ()&gt; Size: 8B
-array(1.532142e-07)
+array(4.929667e-08)
 Attributes:
     standard_name:  specific_turbulent_kinetic_energy_dissipation_in_sea_water
     units:          W kg-1
     long_name:      dissipation rate of turbulent kinetic energy per unit mas...
 &lt;xarray.DataArray &#39;EPSI_FINAL&#39; ()&gt; Size: 8B
-array(2.353111e-07)
+array(2.270163e-10)
 Attributes:
     standard_name:  specific_turbulent_kinetic_energy_dissipation_in_sea_water
     units:          W kg-1
@@ -1432,7 +1827,7 @@ Attributes:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\Psi$ $[s^{-2}\\mathrm{cpm}^{-1}]$&#39;)
 </pre></div>
 </div>
-<img alt="_images/0e274b101579c629bde750194fb3d19b362f53ab7d1031dc1b1d3e4d66bcb414.png" src="_images/0e274b101579c629bde750194fb3d19b362f53ab7d1031dc1b1d3e4d66bcb414.png" />
+<img alt="_images/e009ea3b5bfa497b45e8d38b7f2a8ecab6a873a0656b8805ef413f14d433bb8d.png" src="_images/e009ea3b5bfa497b45e8d38b7f2a8ecab6a873a0656b8805ef413f14d433bb8d.png" />
 </div>
 </div>
 </section>
@@ -1518,9 +1913,9 @@ F_h=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 &lt;&gt;:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
 &lt;&gt;:18: SyntaxWarning: invalid escape sequence &#39;\e&#39;
 &lt;&gt;:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
-/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2509822319.py:18: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_51571/2509822319.py:18: SyntaxWarning: invalid escape sequence &#39;\e&#39;
   ax[0].set_xlabel(&#39;$\epsilon \ (m^3s^{-2})$&#39;)
-/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2509822319.py:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
+/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_51571/2509822319.py:19: SyntaxWarning: invalid escape sequence &#39;\ &#39;
   ax[1].set_xlabel(&#39;$K_z \ (m^2s^{-1})$&#39;)
 </pre></div>
 </div>
@@ -1541,6 +1936,29 @@ F_h=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 <p>2.7) What are the main assumptions of law-of-the-wall?</p>
 <p>2.8) Up to what depth does law-of-the-wall agree with observations?</p>
 <p>2.9) Given <span class="math notranslate nohighlight">\(B_0 = 1 \times 10^{-8} \ m^3 s^{-2}\)</span>, compute the Monin-Obukhov length scale and make a statement about the forcing conditions experienced while this profile was taken.</p>
+<div class="math notranslate nohighlight">
+\[
+L_{MO} = \frac{u_*^3}{\kappa B_0},
+\]</div>
+<p><span class="math notranslate nohighlight">\(z/L_{MO}&lt;0.3\)</span> , wind driven shear production<br />
+<span class="math notranslate nohighlight">\(z/L_{MO}&gt;1\)</span> , buoyancy dominated (production or consumption)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">ustar</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="n">B</span><span class="o">=</span><span class="mf">1e-8</span>
+<span class="n">L_MO</span><span class="o">=</span><span class="p">(</span><span class="n">ustar</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="mf">1e-8</span><span class="p">))</span>
+<span class="n">z</span><span class="o">/</span><span class="p">(</span><span class="n">ustar</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="mf">1e-8</span><span class="p">))</span> <span class="c1">#z/L_MO less than 0.3, therefore at 5m the turbulence produciton is wind driven and L.O.W should apply </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.019999999999999997
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model profile</span>
@@ -1554,7 +1972,7 @@ F_h=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2175224984.py:5: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_51571/2175224984.py:5: RuntimeWarning: divide by zero encountered in divide
   eps_low=ustar**3/(k*z)
 </pre></div>
 </div>
@@ -1581,11 +1999,11 @@ F_h=\rho_0 c_p \mathrm{Kz} \frac{dT}{dz}
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
 &lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
-/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_17389/2234889368.py:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
+/var/folders/1q/qmm9yg_90xl7f60v6q7wn2fr0000gn/T/ipykernel_51571/2234889368.py:12: SyntaxWarning: invalid escape sequence &#39;\e&#39;
   plt.xlabel(&#39;$\epsilon$ [W kg$^{-1}$]&#39;)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x30b9042d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1698cbed0&gt;
 </pre></div>
 </div>
 <img alt="_images/9cf500bb78de9d1e40e3363e0914cd277a79e7fa2facb5945a753205406bc1f7.png" src="_images/9cf500bb78de9d1e40e3363e0914cd277a79e7fa2facb5945a753205406bc1f7.png" />
