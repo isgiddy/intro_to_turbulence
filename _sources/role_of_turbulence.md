@@ -40,7 +40,7 @@ $$
 E = \rho K_z N^2 A h ,
 $$
 
-where $\rho = 1000$  kgm$^3$ is a characteristic density, $K_z = $10$^{-4}$ $m^2s^{-1}$ is eddy diffusivity, $N^2 = 10^{-5}$ s$^{-2}$ is stratification, $A = 3.6 x 10^14$  m$^2$, is the surface area of the ocean below 1000 m and $h = 4800 $   m, the thickness of the ocean below 1000 m. 
+where $\rho = 1000$  kgm$^3$ is a characteristic density, $K_z = $10$^{-4}$ $m^2s^{-1}$ is eddy diffusivity, $N^2 = 10^{-5}$ s$^{-2}$ is stratification, $A = 3.6$ x $10^14$  m$^2$, is the surface area of the ocean below 1000 m and $h = 4800 $   m, the thickness of the ocean below 1000 m. 
 
 $$
 E \approx 1.7 \times 10^{12} \ \mathrm{W} = \mathbf{1.7} \ \mathrm{TW}
