@@ -21,7 +21,7 @@ Three-dimensional (3D) turbulence {cite}`smyth_2009`
 
 ---
 
-These notes may be updated during the course. 
+These notes may be updated during the course or after. If you pick up any incorrect information or mistakes please let me know by creating an issue on the respository. Thank you!
 
 
 ## Learning Goals
